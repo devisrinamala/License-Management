@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LICENCE MANAGEMENT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="viewpage.css">
+
+    <style>
+        .card .card-body th {
+            width: 290px;
+        }
+    </style>
+</head>
+
+<body style="background-color: #f5f3fb; margin: 50px;">
+
+    <div class="heading" style="display: flex; justify-content: space-between;">
+        <h4>ISO CARS</h4>
+        <button
+            style="border-color: #e1e1e1; background-color: rgb(222, 222, 222); padding: 0px 13px; font-weight: 600;">Back</button>
+    </div>
+
+    <div class="iso-cars">
+        <div class="navbar shadow"
+            style="background-color: #fff; border-radius: 5px; margin-top: 20px; font-weight: 500; font-size: 1.2rem;">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" id="details-tab" onclick="showCard('details')">Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="seats-tab" onclick="showCard('seats')">Seats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="history-tab" onclick="showCard('history')">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="files-tab" onclick="showCard('files')">Files</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card shadow" id="details-card">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Manufacture:</th>
+                            <td>Hoda <br><span style="color: rgb(0, 0, 200);"> <i
+                                        class="fa-solid fa-phone"></i>1234</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Product Key:</th>
+                            <td>7976762</td>
+                        </tr>
+                        <tr>
+                            <th>Category:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Supplier:</th>
+                            <td>900</td>
+                        </tr>
+                        <tr>
+                            <th>Licensed To Name:</th>
+                            <td>ISO Car</td>
+                        </tr>
+                        <tr>
+                            <th>Licensed To Email:</th>
+                            <td>Cs@Dam</td>
+                        </tr>
+                        <tr>
+                            <th>Expiration Date:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Termination Date:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Purchase Order Number:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Order Number:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Seats:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Purchase Date:</th>
+                            <td>06</td>
+                        </tr>
+                        <tr>
+                            <th>Reassignable:</th>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>Notes:</th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card shadow d-none" id="seats-card" style="margin-top: 15px; border: none; padding: 8px 20px;">
+            <div class="card-body">
+
+                <table class="table table-bordered" style="margin: 15px 3px;">
+
+                    <div class="table-content" style="display: flex; justify-content: space-between;">
+                        <div class="searchbar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search"
+                                placeholder="Search for order ID,customer,order status or something ..."
+                                style="width: 380px;padding-left: 30px; border-radius: 4px; border-width: 0.2px; padding-top: 5px; padding-bottom: 5px;">
+                        </div>
+
+                        <div class="content" style="display: flex; justify-content: space-evenly;">
+                            <div class="dropdown" style="margin: 0 20px;">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="background-color: rgb(235, 235, 243); color: #000; border: none;">
+                                    10
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">25</a></li>
+                                    <li><a class="dropdown-item" href="#">50</a></li>
+                                    <li><a class="dropdown-item" href="#">100</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-secondary"
+                                style="background-color: rgb(235, 235, 243); color: #000; border: none;"><i
+                                    class="fa-solid fa-rotate-right"></i></button>
+                            <div class="dropdown" style="margin: 0 20px;">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="background-color: rgb(235, 235, 243); color: #000; border: none;">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Export
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#"><i
+                                                class="fa-solid fa-file-excel"></i>Excel</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-lines"></i>CSV</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-pdf"></i>PDF</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-print"></i>Print</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <thead
+                        style="background-color: rgb(243, 243, 247); color: rgb(163, 163, 163); font-weight: 200; border: 1px solid rgb(171, 170, 170);">
+                        <tr>
+                            <th onclick="sortTable(1)">
+                                Seat<i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(2)">
+                                Check-Out-To <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(3)">
+                                Location <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(4)">
+                                Check-In/Check-Out <i class="fa-solid fa-sort"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody style="border: 1px solid rgb(171, 170, 170);">
+                        <tr>
+                            <td class="fc">
+                                Seat 4
+                            </td>
+                            <td>
+                                Staff:Test 1
+                            </td>
+                            <td>
+                                LAB2
+                            </td>
+                            <td>
+                                <button type="button" class="btn blue" data-bs-toggle="modal"
+                                    data-bs-target="#CheckInModal">Check-In</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fc">
+                                Seat 5
+                            </td>
+                            <td>
+                                Staff:Test 2
+                            </td>
+                            <td>
+                                LAB
+                            </td>
+                            <td>
+                                <button type="button" class="btn red" data-bs-toggle="modal"
+                                    data-bs-target="#CheckOutModal">Check-Out</button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="table-bottom" style="display: flex; justify-content: space-between; margin: 15px 3px;">
+                    <div class="disply-entries">
+                        <h6>showing 1 To 3 Of 3 Entries</h6>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn btn-secondary"
+                            style="background-color: #fff; color: #000; border: rgb(206, 206, 206) 1px solid;">Previous</button>
+                        <button class="btn btn-secondary"
+                            style="background-color: rgb(31, 31, 102); color: #fff;">1</button>
+                        <button class="btn btn-secondary"
+                            style="background-color: #fff; color: #000; border: rgb(206, 206, 206) 1px solid;">Next</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card d-none" id="history-card" style="margin-top: 15px; border: none; padding: 8px 20px;">
+            <div class="card-body">
+
+                <table class="table table-bordered" style="margin: 15px 3px;">
+
+                    <div class="table-content" style="display: flex; justify-content: space-between;">
+                        <div class="searchbar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search"
+                                placeholder="Search for order ID,customer,order status or something ..."
+                                style="width: 380px;padding-left: 30px; border-radius: 4px; border-width: 0.2px; padding-top: 5px; padding-bottom: 5px;">
+                        </div>
+
+                        <div class="content" style="display: flex; justify-content: space-evenly;">
+                            <div class="dropdown" style="margin: 0 20px;">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="background-color: rgb(235, 235, 243); color: #000; border: none;">
+                                    10
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">25</a></li>
+                                    <li><a class="dropdown-item" href="#">50</a></li>
+                                    <li><a class="dropdown-item" href="#">100</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-secondary"
+                                style="background-color: rgb(235, 235, 243); color: #000; border: none;"><i
+                                    class="fa-solid fa-rotate-right"></i></button>
+                            <div class="dropdown" style="margin: 0 20px;">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="background-color: rgb(235, 235, 243); color: #000; border: none;">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Export
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#"><i
+                                                class="fa-solid fa-file-excel"></i>Excel</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-lines"></i>CSV</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-pdf"></i>PDF</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-print"></i>Print</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <thead
+                        style="background-color: rgb(243, 243, 247); color: rgb(163, 163, 163); font-weight: 200; border: 1px solid rgb(171, 170, 170);">
+                        <tr>
+                            <th onclick="sortTable(1)">
+                                Date <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(2)">
+                                Admin <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(3)">
+                                Action <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(4)">
+                                Target <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(5)">
+                                Notes <i class="fa-solid fa-sort"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody style="border: 1px solid rgb(171, 170, 170);">
+                        <tr>
+                            <td>
+                                31-05-2024 2:23:43
+                            </td>
+                            <td class="hc">
+                                GTSSolutions GTS
+                            </td>
+                            <td class="hc">
+                                Check-Out
+                            </td>
+                            <td class="hc">
+                                <i class="fa-solid fa-user"></i> (IT)Test 4
+                            </td>
+                            <td class="hc">
+                                10
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                31-05-2024 2:23:43
+                            </td>
+                            <td class="hc">
+                                GTSSolutions GTS
+                            </td>
+                            <td class="hc">
+                                Check-Out
+                            </td>
+                            <td class="hc">
+                                <i class="fa-solid fa-user"></i> (IT)Test 1
+                            </td>
+                            <td class="hc">
+                                10
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="table-bottom" style="display: flex; justify-content: space-between; margin: 15px 3px;">
+                    <div class="disply-entries">
+                        <h6>showing 1 To 2 Of 2 Entries</h6>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn btn-secondary"
+                            style="background-color: #fff; color: #000; border: rgb(206, 206, 206) 1px solid;">Previous</button>
+                        <button class="btn btn-secondary"
+                            style="background-color: rgb(31, 31, 102); color: #fff;">1</button>
+                        <button class="btn btn-secondary"
+                            style="background-color: #fff; color: #000; border: rgb(206, 206, 206) 1px solid;">Next</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card shadow d-none" id="files-card" style="margin-top: 15px; border: none; padding: 8px 20px;">
+            <div class="card-body">
+
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    style="color: #fff; background-color: rgb(241, 196, 113);">
+                    <i class="fa-solid fa-arrow-down-wide-short" style="padding-right: 2px;"></i>
+                    UPLOAD FILE
+                </button>
+
+                <!-- files Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Upload File</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mt-4">
+                                    <form onsubmit="return validateFile()">
+                                        <label for="fileUpload"><strong><span style="color: red;">*</span> Choose Excel
+                                                File</strong> <br><input type="file" id="fileUpload"
+                                                style="width: 770px; border: #000 1px solid; border-radius: 5px; padding: 5px 10px;"></label>
+                                        <p id="errorMessage" class="error-message">Select A File</p>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn"
+                                                style="background-color: rgb(204, 204, 204);"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn"
+                                                style="background-color: rgb(76, 171, 136); color: #fff;">Save</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- check-in model  -->
+
+    <div class="modal fade" id="CheckInModal" tabindex="-1" aria-labelledby="CheckInModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- large modal -->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(245, 245, 253);">
+                    <h5 class="modal-title" id="CheckInModalLabel">CheckIn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form onsubmit="return validateInput()">
+
+                        <label for="nameInput" class="form-label"><span class="text-danger">*</span> Software
+                            Name</label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="Enter Software Name">
+                        <p id="errorText" class="error-message">Enter Software Name</p>
+
+
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-control" placeholder="Notes" rows="3"></textarea>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="close"
+                                data-bs-dismiss="modal">CLOSE</button>
+                            <button type="submit" class="btn btn-success">CHECK-IN</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- check-out model  -->
+
+    <div class="modal fade" id="CheckOutModal" tabindex="-1" aria-labelledby="CheckOutModelLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- Extra large modal -->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(245, 245, 253);">
+                    <h5 class="modal-title" id="CheckOutModelLabel">CheckOut</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="inputName" class="form-label"><span class="text-danger">*</span> Software
+                                    Name</label>
+                                <input type="text" class="form-control" id="inputName"
+                                    placeholder="Enter Software Name">
+                                <p id="softwareError" class="error-message"></p>
+
+                                <h6 class="mt-3">Category Name</h6>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="forsell">
+                                    <label class="form-check-label" for="forsell">For Sell</label>
+                                </div>
+                            </div>
+
+                            <!-- Second Column -->
+                            <div class="col-md-6">
+                                <label for="categoryName" class="form-label"><span class="text-danger">*</span> Category
+                                    Name</label>
+                                <select class="form-select" id="categoryName">
+                                    <option value="" selected disabled> Select Category</option>
+                                    <option>Graphics</option>
+                                    <option>Development</option>
+                                    <option>Security</option>
+                                </select>
+                                <p id="categoryError" class="error-message"></p>
+
+                                <div class="form-check mt-5">
+                                    <input class="form-check-input" type="checkbox" id="maintained">
+                                    <label class="form-check-label" for="maintained">Maintained</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="form-label mt-3">Notes</label>
+                        <textarea class="form-control" placeholder="Notes" rows="4"></textarea>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="close"
+                                data-bs-dismiss="modal">CLOSE</button>
+                            <button type="submit" id="subBtn" class="btn btn-success">CHECK-OUT</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        //js for navbar function
+
+        function showCard(section) {
+            // Hide all cards
+            document.getElementById("details-card").classList.add("d-none");
+            document.getElementById("seats-card").classList.add("d-none");
+            document.getElementById("history-card").classList.add("d-none");
+            document.getElementById("files-card").classList.add("d-none");
+
+            // Show the selected card
+            document.getElementById(section + "-card").classList.remove("d-none");
+
+            // Update active tab styling
+            document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
+            document.getElementById(section + "-tab").classList.add("active");
+        }
+
+
+        //changes button colour by onclick        
+
+        // function toggleButton(button) {
+        //     if (button.classList.contains("blue")) {
+        //         // Change to Check-out
+        //         button.classList.remove("blue");
+        //         button.classList.add("red");
+        //         button.textContent = "Check-out";
+
+        //         // Change modal target to Check-out modal
+        //         let checkinModal = new bootstrap.Modal(document.getElementById('CheckInModal'));
+        //         checkinModal.show();
+        //     } else {
+        //         // Change to Check-in
+        //         button.classList.remove("red");
+        //         button.classList.add("blue");
+        //         button.textContent = "Check-in";
+
+        //         // Change modal target back to Check-in modal
+        //         let checkoutModal = new bootstrap.Modal(document.getElementById('CheckOutModal'));
+        //         checkoutModal.show();
+        //     }
+        // }
+
+
+        // upload filevalidation
+
+        function validateFile() {
+            let fileInput = document.getElementById("fileUpload");
+            let errorMessage = document.getElementById("errorMessage");
+
+            if (fileInput.files.length === 0) {
+                errorMessage.style.display = "block"; // Show error message
+                return false; // Prevent form submission
+            } else {
+                errorMessage.style.display = "none"; // Hide error message
+                return true;
+            }
+        }
+
+
+        //checkin validation
+
+        function validateInput() {
+            let inputField = document.getElementById("nameInput");
+            let errorText = document.getElementById("errorText");
+
+            if (inputField.value.trim() === "") {
+                errorText.style.display = "block"; // Show error message
+                return false; // Prevent form submission
+            } else {
+                errorText.style.display = "none"; // Hide error message
+                return true;
+            }
+        }
+
+        //checkout validation
+
+        document.getElementById("subBtn").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            let inputName = document.getElementById("inputName").value.trim();
+            let categoryName = document.getElementById("categoryName").value;
+            // let errorMsg = document.getElementById("error-message");
+
+            // Clear previous error message
+            document.getElementById("softwareError").innerText = "";
+            document.getElementById("categoryError").innerText = "";
+
+            let isValid = true;
+
+            // Validation conditions
+            if (inputName === "") {
+                document.getElementById("softwareError").innerText = " Enter Software Name";
+                isValid = false;
+            }
+            if (categoryName === "") {
+                document.getElementById("categoryError").innerText = " Select Category Name ";
+                isValid = false;
+            }
+
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

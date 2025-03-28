@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card .card-body table tbody tr{
+    background-color: #fff;
+    height: 60px;
+}
+
+.card .card-body table tbody tr:hover{
+    background-color: rgb(243, 243, 247);
+    
+}
+
+.card .card-body table tbody tr .icons{
+    position: absolute;
+    display: none;
+    font-size: 0.8rem;
+}
+
+.card .card-body table tbody .sc:hover .icons{
+    display: block;
+}
+
+.card .card-body tbody tr td .btn.toggle-btn{
+    background-color: rgb(62, 62, 94); 
+    color: #fff; 
+    margin: 3px; 
+    border-radius: 50%; 
+    padding: 0px 7px 2px 8px;
+}
+
+.collapse-buttons{
+    margin-left: 50px;
+}
+
+.collapse-buttons button{
+    margin-left: 50px;
+    background-color: rgb(250, 59, 84);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 7px;
+}
+
+#categoryselect{
+    color: gray;
+}
+
+#categoryselect:focus{
+    color: black;
+}
+
+#manufacturer{
+    color: gray;
+}
+
+#manufacturer:focus{
+    color: black;
+}
+
+#CategoryName{
+    color: gray;
+}
+
+#CategoryName:focus{
+    color: black;
+}
+
+#Manufacturer{
+    color: gray;
+}
+
+#Manufacturer:focus{
+    color: black;
+}
+
+#purchasedate::placeholder{
+    color: black !important;
+    opacity: 1;
+}
+
+.error-message {
+    color: red;
+    /* display: none; */
+    margin-top: 5px;
+    padding-left: 10px;
+    font-size: 1.05rem;
+}

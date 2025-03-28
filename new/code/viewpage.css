@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar ul li a{
+    color: #000;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.card{
+    margin-top: 15px; 
+    border: none; 
+    padding: 8px 20px;
+}
+
+.searchbar i{
+    position: fixed; 
+    left: 93px; 
+    padding-top: 10px; 
+    color: rgb(171, 170, 170);
+}
+
+.searchbar input{
+    border-color: rgb(230, 229, 229);
+}
+
+table th{
+    font-weight: 500;
+}
+
+table th i{
+    font-size: 12px;
+    float: right;
+}
+
+table tr{
+    height: 50px;
+    align-items: center;
+    font-weight: 500;
+}
+
+table tr .fc{
+    color: rgb(2, 145, 174);
+}
+
+.blue{
+    background-color: rgb(0, 0, 230);
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.red{
+    background-color: rgb(223, 2, 2);
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.table-bottom h6{
+    color: gray;
+}
+
+.hc{
+    font-style: normal;
+    color: #4a4a4a;
+}
+
+.error-message {
+    color: red;
+    /* display: none; */
+    margin-top: 5px;
+    padding-left: 10px;
+    font-size: 1.05rem;
+}
+
+h6{
+    font-weight: 400;
+}
+
+textarea{
+    resize: none;
+}
+
+.modal-footer button{
+    font-size: smaller;
+    background-color: rgb(76, 171, 136);
+    border: none;
+}
+
+.modal-footer #close{
+    color: #000; 
+    background-color: rgb(217, 217, 217); 
+    border: none;
+    font-size: small;
+
+}
+
+#categoryName{
+    color: gray;
+}
+
+#categoryName:focus{
+    color: black;
+}

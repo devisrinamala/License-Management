@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licence Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.4.0/esm/ionicons.min.js">
+
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        th {
+            cursor: pointer;
+        }
+
+        .collapse-buttons {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(247, 245, 252);">
+
+
+
+
+
+    <!-- add and upload buttons  -->
+
+    <div class="card" style="border: none; background: none;">
+
+        <div class="card-body"
+            style="margin-bottom: -20px; display: flex; justify-content: space-between; margin-top: 15px;">
+
+            <div class="buttons">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addLicenceModal"
+                    style="background-color: rgb(62, 62, 94); color: #fff;"><i class="fa-solid fa-plus"
+                        style="padding-right: 2px;"></i>ADD</button>
+                <a href="uploadpage.html"><button type="button" class="btn"
+                        style="color: #fff; background-color: rgb(241, 196, 113);"><i
+                            class="fa-solid fa-arrow-down-wide-short" style="padding-right: 2px;"></i>BULK
+                        UPLOAD</button></a>
+            </div>
+
+            <div class="heading">
+                <h5>LICENCE MANAGEMENT</h5>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- table  -->
+
+    <div class="card" style="max-width: 100%; margin: 15px;">
+
+        <div class="card-body">
+
+            <table class="table table-bordered" style="margin: 15px 3px;">
+
+                <div class="table-content" style="display: flex; justify-content: space-between;">
+                    <div class="searchbar">
+                        <i class="fa-solid fa-magnifying-glass"
+                            style="position: fixed; left: 38px; padding-top: 10px; color: rgb(171, 170, 170);"></i>
+                        <input type="search" placeholder="Search for order ID,customer,order status or something ..."
+                            style="width: 380px;padding-left: 30px; border-radius: 4px; border-width: 0.2px; padding-top: 5px; padding-bottom: 5px;">
+                    </div>
+
+                    <div class="content" style="display: flex; justify-content: space-evenly;">
+                        <div class="dropdown" style="margin: 0 20px;">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                                style="background-color: rgb(235, 235, 243); color: #000; border: none;">
+                                10
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">25</a></li>
+                                <li><a class="dropdown-item" href="#">50</a></li>
+                                <li><a class="dropdown-item" href="#">100</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-secondary"
+                            style="background-color: rgb(235, 235, 243); color: #000; border: none;"><i
+                                class="fa-solid fa-rotate-right"></i></button>
+                        <div class="dropdown" style="margin: 0 20px;">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                                style="background-color: rgb(235, 235, 243); color: #000; border: none;">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i> Export
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-excel"></i>Excel</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-lines"></i>CSV</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-pdf"></i>PDF</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-print"></i>Print</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <thead
+                    style="background-color: rgb(243, 243, 247); color: rgb(163, 163, 163); font-weight: 200; border: 1px solid rgb(171, 170, 170);">
+                    <tr>
+                        <th onclick="sortTable(1)">
+                            <input type="checkbox"><i class="fa-solid fa-sort"
+                                style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(2)">
+                            ID <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(3)">
+                            Licence <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(4)">
+                            Product key <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(5)">
+                            Expiration Date <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+
+                        <th onclick="sortTable(6)">
+                            Licensed To Email <i class="fa-solid fa-sort"
+                                style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(7)">
+                            Licensed To Name <i class="fa-solid fa-sort"
+                                style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(8)">
+                            Manufacture <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(9)">
+                            Total(Seats) <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(10)">
+                            Avail(Seats) <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                        <th onclick="sortTable(11)">
+                            Inventory Qty <i class="fa-solid fa-sort" style="font-size: 12px;padding-left: 15px;"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody style="border: 1px solid rgb(171, 170, 170);">
+                    <tr>
+                        <td>
+                            <button class="btn toggle-btn" onclick="toggleRow(this)">
+                                <i class="fa-solid fa-plus" style="font-size: 10px; padding-bottom: 5px;"></i>
+                            </button>
+                            <input type="checkbox">
+                        </td>
+                        <td class="sc">
+                            67 <br>
+                            <div class="icons">
+                                <a href="viewpage.html"><i class="fa-regular fa-eye" style="color: darkblue;"></i></a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#editLicenceModal"><i
+                                        class="fa-regular fa-pen-to-square" style="color: rgb(76, 171, 136);"></i></a>
+                                <a href=""><i class="fa-regular fa-trash-can" style="color: rgb(251, 91, 91);"></i></a>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </td>
+                        <td>
+                            Aaaa
+                        </td>
+                        <td>
+                            8436745287
+                        </td>
+                        <td>
+                            18/08/25
+                        </td>
+                        <td>
+                            Abcd
+                        </td>
+                        <td>
+                            John Doe
+                        </td>
+                        <td>
+                            Samsung
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            0
+                        </td>
+                    </tr>
+                    <tr class="collapse-row" style="display: none;">
+                        <td colspan="12">
+                            <div class="collapse-buttons">
+                                <h4 style="display: inline; padding-right: 30px;">CheckIn/ <br> Check-Out</h4>
+                                <button class="btn" data-bs-toggle="modal"
+                                    data-bs-target="#CheckOutModal">Check-out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn toggle-btn" onclick="toggleRow(this)">
+                                <i class="fa-solid fa-plus" style="font-size: 10px;"></i>
+                            </button>
+                            <input type="checkbox">
+                        </td>
+                        <td class="sc">
+                            48 <br>
+                            <div class="icons">
+                                <a href="viewpage.html"><i class="fa-regular fa-eye" style="color: darkblue;"></i></a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#editLicenceModal"><i class="fa-regular fa-pen-to-square"
+                                        style="color: rgb(76, 171, 136);"></i></a>
+                                <a href=""><i class="fa-regular fa-trash-can" style="color: rgb(251, 91, 91);"></i></a>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </td>
+                        <td>
+                            H
+                        </td>
+                        <td>
+                            43276e4w57
+                        </td>
+                        <td>
+                            24/10/27
+                        </td>
+                        <td>
+                            Abcd
+                        </td>
+                        <td>
+                            John Doe
+                        </td>
+                        <td>
+                            Samsung
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            0
+                        </td>
+                    </tr>
+                    <tr class="collapse-row" style="display: none;">
+                        <td colspan="12">
+                            <div class="collapse-buttons">
+                                <h4 style="display: inline; padding-right: 30px;">CheckIn/ <br> Check-Out</h4>
+                                <button class="btn" data-bs-toggle="modal"
+                                    data-bs-target="#CheckOutModal">Check-out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn toggle-btn" id="togglebtn" onclick="toggleRow(this)">
+                                <i class="fa-solid fa-plus" style="font-size: 10px;"></i>
+                            </button>
+                            <input type="checkbox">
+                        </td>
+                        <td class="sc">
+                            45 <br>
+                            <div class="icons">
+                                <a href="viewpage.html"><i class="fa-regular fa-eye" style="color: darkblue;"></i></a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#editLicenceModal"><i class="fa-regular fa-pen-to-square"
+                                        style="color: rgb(76, 171, 136);"></i></a>
+                                <a href=""><i class="fa-regular fa-trash-can" style="color: rgb(251, 91, 91);"></i></a>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </td>
+                        <td>
+                            Computer
+                        </td>
+                        <td>
+                            W89ywgr871
+                        </td>
+                        <td>
+                            11/03/24
+                        </td>
+                        <td>
+                            Abcd
+                        </td>
+                        <td>
+                            Peggy Carter
+                        </td>
+                        <td>
+                            Apple Inc
+                        </td>
+                        <td>
+                            10
+                        </td>
+                        <td>
+                            8
+                        </td>
+                        <td>
+                            4
+                        </td>
+                    </tr>
+                    <tr class="collapse-row" style="display: none;">
+                        <td colspan="12">
+                            <div class="collapse-buttons">
+                                <h4 style="display: inline; padding-right: 30px;">CheckIn/ <br> Check-Out</h4>
+                                <button class="btn" data-bs-toggle="modal"
+                                    data-bs-target="#CheckOutModal">Check-out</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="table-bottom" style="display: flex; justify-content: space-between; margin: 15px 3px;">
+                <div class="disply-entries">
+                    <h6>showing 1 To 3 Of 3 Entries</h6>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-secondary"
+                        style="background-color: #fff; color: #000; border: rgb(206, 206, 206) 1px solid;">Previous</button>
+                    <button class="btn btn-secondary"
+                        style="background-color: rgb(31, 31, 102); color: #fff;">1</button>
+                    <button class="btn btn-secondary"
+                        style="background-color: #fff; color: #000; border: rgb(206, 206, 206) 1px solid;">Next</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- add page  -->
+
+    <div class="modal fade" id="addLicenceModal" tabindex="-1" aria-labelledby="addLicenceLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl"> <!-- Extra large modal -->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(245, 245, 253);">
+                    <h5 class="modal-title" id="addLicenceLabel">Add Licence</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <!-- First Column -->
+                            <div class="col-md-4">
+                                <label for="SoftwareName" class="form-label"><span class="text-danger">*</span> Software
+                                    Name</label>
+                                <input type="text" class="form-control" id="SoftwareName"
+                                    placeholder="Enter Software Name">
+                                <p class="error-message" id="errorSoftware"></p>
+
+                                <label for="Seats" class="form-label mt-3"><span class="text-danger">*</span>
+                                    Seats</label>
+                                <input type="number" id="Seats" class="form-control" placeholder="Enter Seats">
+                                <p class="error-message" id="errorSeats"></p>
+
+
+                                <label class="form-label mt-3">Licensed To Email</label>
+                                <input type="email" class="form-control" placeholder="Enter Licensed Email">
+
+                                <label class="form-label mt-3">Purchase Order Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Purchase Order Number">
+
+                                <label class="form-label mt-3">Expiration Date</label>
+                                <input type="text" class="form-control date-input" placeholder="dd/mm/yyyy">
+
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="forsell"
+                                        style="background-color: gray;">
+                                    <label class="form-check-label" for="forsell">For Sell</label>
+                                </div>
+
+                                <label for="SellingPrice" class="form-label mt-3"><span class="text-danger">*</span>
+                                    Selling Price</label>
+                                <input type="number" id="SellingPrice" class="form-control"
+                                    placeholder="Enter Selling Price">
+                                <p class="error-message" id="errorSelling"> Enter Selling Price</p>
+                            </div>
+
+                            <!-- Second Column -->
+                            <div class="col-md-4">
+                                <label for="CategoryName" class="form-label"><span class="text-danger">*</span> Category
+                                    Name</label>
+                                <select id="CategoryName" class="form-select">
+                                    <option value="" selected disabled> select CategoryName</option>
+                                    <option>Graphic</option>
+                                    <option>Development</option>
+                                    <option>Security</option>
+                                </select>
+                                <p class="error-message" id="errorCategory"></p>
+
+                                <label for="Manufacturer" class="form-label mt-3"><span class="text-danger">*</span>
+                                    Manufacturer</label>
+                                <select id="Manufacturer" class="form-select">
+                                    <option value="" selected disabled>Select Manufacturer</option>
+                                    <option>Apple Inc</option>
+                                    <option>Microsoft</option>
+                                    <option>Adobe</option>
+                                </select>
+                                <p class="error-message" id="errorManufacturer"></p>
+
+                                <label class="form-label mt-3">Supplier</label>
+                                <select class="form-select">
+                                    <option>Auer, Wisoz and Wehner</option>
+                                    <option>Tech Corp</option>
+                                </select>
+
+                                <label class="form-label mt-3">Purchase Cost</label>
+                                <input type="number" class="form-control" placeholder="Enter Purchase Cost">
+
+                                <label class="form-label mt-3">Termination Date</label>
+                                <input type="text" class="form-control date-input" placeholder="dd/mm/yyyy">
+
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="maintained">
+                                    <label class="form-check-label" for="maintained">Maintained</label>
+                                </div>
+                            </div>
+
+                            <!-- Third Column -->
+                            <div class="col-md-4">
+                                <label class="form-label">Product Key</label>
+                                <input type="text" class="form-control" placeholder="Enter Product Key">
+
+                                <label class="form-label mt-3">Licensed To Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Licensed Name">
+
+                                <label class="form-label mt-3">Order Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Order Number">
+
+                                <label class="form-label mt-3">Purchase Date</label>
+                                <input type="text" class="form-control date-input" placeholder="dd/mm/yyyy">
+
+                                <label class="form-label mt-3">Depreciation</label>
+                                <input type="text" class="form-control" placeholder="Enter Depreciation">
+
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="reassignable">
+                                    <label class="form-check-label" for="reassignable">Reassignable</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="form-label mt-3">Notes</label>
+                        <textarea class="form-control" placeholder="Enter Notes" rows="4"
+                            style="resize: none;"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="submitBtn" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- edit page  -->
+
+    <div class="modal fade" id="editLicenceModal" tabindex="-1" aria-labelledby="editLicenceLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- Extra large modal -->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(245, 245, 253);">
+                    <h5 class="modal-title" id="editLicenceLabel">Edit Licence</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <!-- First Column -->
+                            <div class="col-md-4">
+                                <label for="softwareName" class="form-label"><span class="text-danger">*</span> Software
+                                    Name</label>
+                                <input type="text" id="softwareName" class="form-control"
+                                    placeholder="Enter Software Name">
+                                <p id="errorsoftware" class="error-message"></p>
+
+                                <label for="seats" class="form-label mt-3"><span class="text-danger">*</span>
+                                    Seats</label>
+                                <input type="number" id="seats" class="form-control" placeholder="Enter Seats">
+                                <p id="errorseats" class="error-message"></p>
+
+                                <label class="form-label mt-3">Licensed To Email</label>
+                                <input type="email" class="form-control" placeholder="Enter Licensed To Email">
+
+                                <label class="form-label mt-3">Purchase Order Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Purchase Order Number">
+
+                                <label class="form-label mt-3">Expiration Date</label>
+                                <div class="input-group" id="purchasedate">
+                                    <input type="number" class="form-control input-date" placeholder="dd-mm-yyyy">
+                                    <span class="material-symbols-outlined"
+                                        style="padding-top: 6px; padding-left: 210px; position: absolute; font-size: 20px; color: rgb(86, 86, 86);">calendar_month
+                                    </span>
+                                    <!-- <i class="far fa-calendar-alt" style="padding-top: 10px; padding-left: 210px; position: absolute; border: none; "></i> -->
+                                </div>
+
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="forsell"
+                                        style="background-color: gray;">
+                                    <label class="form-check-label" for="forsell">For Sell</label>
+                                </div>
+
+                                <label for="sellingPrice" class="form-label mt-3"><span class="text-danger">*</span>
+                                    Selling Price</label>
+                                <input type="number" id="sellingPrice" class="form-control"
+                                    placeholder="Enter Selling Price">
+                                <p id="errorselling" class="error-message"></p>
+                            </div>
+
+                            <!-- Second Column -->
+                            <div class="col-md-4">
+                                <label for="categoryselect" class="form-label"><span class="text-danger">*</span>
+                                    Category Name </label>
+
+                                <select id="categoryselect" class="form-select">
+                                    <option value="" selected disabled>Select Category Name </option>
+                                    <option>Graphics</option>
+                                    <option>Development</option>
+                                    <option>Security</option>
+                                </select>
+                                <p id="errorcategory" class="error-message"></p>
+
+                                <label for="manufacturer" class="form-label mt-3"><span class="text-danger">*</span>
+                                    Manufacturer</label>
+                                <select id="manufacturer" class="form-select">
+                                    <option value="" selected disabled>Select Manufacturer</option>
+                                    <option>Apple Inc</option>
+                                    <option>Microsoft</option>
+                                    <option>Adobe</option>
+                                </select>
+                                <p id="errormanufacturer" class="error-message"></p>
+
+                                <label class="form-label mt-3">Supplier</label>
+                                <select id="categoryselect" class="form-select">
+                                    <option value="" selected disabled>Select Suppiler</option>
+                                    <option>Auer, Wisoz and Wehner</option>
+                                    <option>Tech Corp</option>
+                                </select>
+
+                                <label class="form-label mt-3">Purchase Cost</label>
+                                <input type="number" class="form-control" placeholder="Enter Purchase Cost">
+
+                                <label class="form-label mt-3">Termination Date</label>
+                                <div class="input-group" id="purchasedate">
+                                    <input type="number" class="form-control input-date" placeholder="dd-mm-yyyy">
+                                    <span class="material-symbols-outlined"
+                                        style="padding-top: 6px; padding-left: 210px; position: absolute; font-size: 20px; color: rgb(86, 86, 86);">calendar_month
+                                    </span>
+                                    <!-- <i class="far fa-calendar-alt" style="padding-top: 10px; padding-left: 210px; position: absolute; border: none; "></i> -->
+                                </div>
+
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="maintained">
+                                    <label class="form-check-label" for="maintained">Maintained</label>
+                                </div>
+                            </div>
+
+                            <!-- Third Column -->
+                            <div class="col-md-4">
+                                <label class="form-label">Product Key</label>
+                                <input type="text" class="form-control" placeholder="Enter Product Key">
+
+                                <label class="form-label mt-3">Licensed To Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Licensed Name">
+
+                                <label class="form-label mt-3">Order Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Order Number">
+
+                                <label class="form-label mt-3">Purchase Date</label>
+                                <div class="input-group" id="purchasedate">
+                                    <input type="number" class="form-control input-date" placeholder="dd-mm-yyyy">
+                                    <span class="material-symbols-outlined"
+                                        style="padding-top: 6px; padding-left: 210px; position: absolute; font-size: 20px; color: rgb(86, 86, 86);">calendar_month
+                                    </span>
+                                    <!-- <i class="far fa-calendar-alt" style="padding-top: 10px; padding-left: 210px; position: absolute; border: none; "></i> -->
+                                </div>
+
+                                <label class="form-label mt-3">Depreciation</label>
+                                <input type="text" class="form-control" placeholder="Enter Depreciation">
+
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="reassignable">
+                                    <label class="form-check-label" for="reassignable">Reassignable</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="form-label mt-3">Notes</label>
+                        <textarea class="form-control" placeholder="Enter Notes" rows="4"
+                            style="resize: none;"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="buttonSubmit" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- check-out modal -->
+
+    <div class="modal fade" id="CheckOutModal" tabindex="-1" aria-labelledby="CheckOutModelLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- Extra large modal -->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(245, 245, 253);">
+                    <h5 class="modal-title" id="CheckOutModelLabel">CheckOut</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="inputName" class="form-label"><span class="text-danger">*</span> Software
+                                    Name</label>
+                                <input type="text" class="form-control" id="inputName"
+                                    placeholder="Enter Software Name">
+                                <p id="softwareError" class="error-message"></p>
+
+                                <h6 class="mt-3">Check-Out-To</h6>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="forsell">
+                                    <label class="form-check-label" for="forsell">Staff</label>
+                                </div>
+                            </div>
+
+                            <!-- Second Column -->
+                            <div class="col-md-6">
+                                <label for="categoryName" class="form-label"><span class="text-danger">*</span>
+                                    Staff</label>
+                                <select class="form-select" id="categoryName">
+                                    <option value="" selected disabled> Select Staff</option>
+                                </select>
+                                <p id="categoryError" class="error-message"></p>
+
+                                <div class="form-check mt-5">
+                                    <input class="form-check-input" type="checkbox" id="maintained">
+                                    <label class="form-check-label" for="maintained">Asset</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="form-label mt-3">Notes</label>
+                        <textarea class="form-control" placeholder="Notes" rows="4"></textarea>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="close"
+                                data-bs-dismiss="modal">CLOSE</button>
+                            <button type="submit" id="subBtn" class="btn btn-success">CHECK-OUT</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 100,
+                'GRAD' -25,
+                'opsz' 24
+        }
+    </style>
+
+    <script>
+
+        // js for left to the checkbox
+
+        function toggleRow(button) {
+            let row = button.closest("tr").nextElementSibling;
+            let icon = button.querySelector("i");
+            let buttonsContainer = row.querySelector(".collapse-buttons");
+
+
+            if (row.style.display === "none" || row.style.display === "") {
+                row.style.display = "table-row";
+                buttonsContainer.style.display = "block";
+                icon.classList.remove("fa-plus");
+                icon.classList.add("fa-minus");
+                button.style.backgroundColor = "red";
+            } else {
+                row.style.display = "none";
+                buttonsContainer.style.display = "none";
+                icon.classList.remove("fa-minus");
+                icon.classList.add("fa-plus");
+                button.style.backgroundColor = "rgb(62, 62, 94)"
+            }
+        }
+
+
+
+        //js for dateformat
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".date-input").forEach(input => {
+                input.addEventListener("focus", function () {
+                    this.type = "date";
+                });
+
+                input.addEventListener("blur", function () {
+                    if (this.value) {
+                        let date = new Date(this.value);
+                        let formattedDate = ("0" + date.getDate()).slice(-2) + "/" +
+                            ("0" + (date.getMonth() + 1)).slice(-2) + "/" +
+                            date.getFullYear();
+                        this.type = "text";
+                        this.value = formattedDate;
+                    } else {
+                        this.type = "text";
+                        this.placeholder = "dd/mm/yyyy";
+                    }
+                });
+            });
+        });
+
+
+        //js for date formate in editpage
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".input-date").forEach(input => {
+                input.addEventListener("focus", function () {
+                    this.type = "date";
+                });
+
+                input.addEventListener("blur", function () {
+                    if (this.value) {
+                        let date = new Date(this.value);
+                        let formattedDate = ("0" + date.getDate()).slice(-2) + "/" +
+                            ("0" + (date.getMonth() + 1)).slice(-2) + "/" +
+                            date.getFullYear();
+                        this.type = "date";
+                        this.value = formattedDate;
+                    } else {
+                        this.type = "text";
+                        this.placeholder = "dd-mm-yyyy";
+                    }
+                });
+            });
+        });
+
+
+        //validation for addpage
+
+        document.getElementById("submitBtn").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            let softwareName = document.getElementById("SoftwareName").value.trim();
+            let categoryName = document.getElementById("CategoryName").value;
+            let seats = document.getElementById("Seats").value.trim();
+            let manufacturer = document.getElementById("Manufacturer").value;
+            let sellingPrice = document.getElementById("SellingPrice").value.trim();
+            let errorMsg = document.getElementById("error-message");
+
+            // Clear previous error message
+            document.getElementById("errorSoftware").innerText = "";
+            document.getElementById("errorCategory").innerText = "";
+            document.getElementById("errorSeats").innerText = "";
+            document.getElementById("errorManufacturer").innerText = "";
+            document.getElementById("errorSelling").innerText = "";
+
+            let isValid = true;
+
+            // Validation conditions
+            if (softwareName === "") {
+                document.getElementById("errorSoftware").innerText = " Enter Software Name";
+                isValid = false;
+            }
+            if (seats === "" || isNaN(seats) || parseInt(seats) <= 0) {
+                document.getElementById("errorSeats").innerText = "Enter Seats";
+                isValid = false;
+            }
+            if (sellingPrice === "" || isNaN(sellingPrice) || parseFloat(sellingPrice) <= 0) {
+                document.getElementById("errorSelling").innerText = " Enter Selling Price ";
+                document.getElementById("errorSelling").style.display = "block";
+                isValid = false;
+            }
+            if (categoryName === "") {
+                document.getElementById("errorCategory").innerText = " Select Category Name ";
+                isValid = false;
+            }
+            if (manufacturer === "") {
+                document.getElementById("errorManufacturer").innerText = " Select Manufacturer";
+                isValid = false;
+            }
+
+
+
+        });
+
+        //validation for editpage
+
+        document.getElementById("buttonSubmit").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            let softwareName = document.getElementById("softwareName").value.trim();
+            let categoryName = document.getElementById("categoryselect").value;
+            let seats = document.getElementById("seats").value.trim();
+            let manufacturer = document.getElementById("manufacturer").value;
+            let sellingPrice = document.getElementById("sellingPrice").value.trim();
+            // let errorMsg = document.getElementById("error-message");
+
+            // Clear previous error message
+            document.getElementById("errorsoftware").innerText = "";
+            document.getElementById("errorcategory").innerText = "";
+            document.getElementById("errorseats").innerText = "";
+            document.getElementById("errormanufacturer").innerText = "";
+            document.getElementById("errorselling").innerText = "";
+
+            let isValid = true;
+
+            // Validation conditions
+            if (softwareName === "") {
+                document.getElementById("errorsoftware").innerText = " Enter Software Name";
+                isValid = false;
+            }
+            if (seats === "" || isNaN(seats) || parseInt(seats) <= 0) {
+                document.getElementById("errorseats").innerText = "Enter Seats";
+                isValid = false;
+            }
+            if (sellingPrice === "" || isNaN(sellingPrice) || parseFloat(sellingPrice) <= 0) {
+                document.getElementById("errorselling").innerText = " Enter Selling Price ";
+                document.getElementById("errorselling").style.display = "block";
+                isValid = false;
+            }
+            if (categoryName === "") {
+                document.getElementById("errorcategory").innerText = " Select Category Name ";
+                isValid = false;
+            }
+            if (manufacturer === "") {
+                document.getElementById("errormanufacturer").innerText = " Select Manufacturer";
+                isValid = false;
+            }
+
+
+
+        });
+
+
+        //validation for checkout
+
+        document.getElementById("subBtn").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            let inputName = document.getElementById("inputName").value.trim();
+            let CategoryName = document.getElementById("categoryName").value;
+            // let errorMsg = document.getElementById("error-message");
+
+            // Clear previous error message
+            document.getElementById("softwareError").innerText = "";
+            document.getElementById("categoryError").innerText = "";
+
+            let isValid = true;
+
+            // Validation conditions
+            if (inputName === "") {
+                document.getElementById("softwareError").innerText = " Enter Software Name";
+                isValid = false;
+            }
+            if (CategoryName === "") {
+                document.getElementById("categoryError").innerText = " Select Category Name ";
+                isValid = false;
+            }
+
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+</body>
+
+</html>
